@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-nov-2016, 9.28.57
+    Author     : Matteo Collina
+*/
+
+.hillWizard .steps a{
+    text-decoration: none;
+    color:black;
+}
+.hillWizard .steps a.active{
+    color:orange;
+}
+.hillWizard .steps a.enabled{
+    opacity: 1;
+}
+.hillWizard .steps a.disabled{
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.hillWizard .contents > div{
+    transition: opacity 1s ease-out;
+    opacity: 0; 
+    height: 0;
+    overflow: hidden;
+}
+.hillWizard .contents > div.active{
+     opacity: 1;
+    height: auto;
+}
+
