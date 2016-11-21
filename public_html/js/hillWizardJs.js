@@ -10,7 +10,8 @@ $(document).ready(function () {
                 
         var defaults = {
           activeStep : 1,
-          showBtn : true
+          showBtn : true,
+          multipleDirections : true
         };    
 
         var methods = {
@@ -20,6 +21,12 @@ $(document).ready(function () {
                 var settings = $.extend({}, defaults, options);
                 var activeStep = settings.activeStep;
                 var showBtn = settings.showBtn;
+                var multipleDirections = settings.multipleDirections;
+                
+                /* If false => You must enable "showBtn" to navigate on steps)*/
+                if(!multipleDirections){
+                    showBtn = true ;
+                }
                 
                 methods.setActiveStep(wizard,activeStep);
                 
@@ -27,13 +34,23 @@ $(document).ready(function () {
                 var aSteps = wizard.children('.steps').children('a');
                 aSteps.each(function( index ) {
                     if (!$(this).hasClass('back') && !$(this).hasClass('forward')){
-                        var cStep = $(this).attr('href').replace('#step', '');
-                        $(this).unbind("click").bind("click",{wizard: wizard,currentStep: cStep},methods.setActiveStepOnClick);
-                    }else if($(this).hasClass('back')){
-                        $(this).unbind("click").bind("click",{wizard: wizard,direction: "back"},methods.setActiveStepBtn);
-                    }else{
-                        $(this).unbind("click").bind("click",{wizard: wizard,direction: "forward"},methods.setActiveStepBtn);
+                        if(multipleDirections){
+                            var cStep = $(this).attr('href').replace('#step', '');
+                            $(this).unbind("click").bind("click",{wizard: wizard,currentStep: cStep},methods.setActiveStepOnClick);
+                        }
                     }
+                });
+                
+                /* init all FORWARD BTNS*/
+                var allGoForwardBtns = wizard.find('.forward');
+                allGoForwardBtns.each(function( index ) {
+                    $(this).unbind("click").bind("click",{wizard: wizard,direction: "forward"},methods.setActiveStepBtn);
+                });
+                
+                /* init all BACK BTNS*/
+                var allGoBackdBtns = wizard.find('.back');
+                allGoBackdBtns.each(function( index ) {
+                    $(this).unbind("click").bind("click",{wizard: wizard,direction: "back"},methods.setActiveStepBtn);
                 });
                 
                 
@@ -134,8 +151,12 @@ $(document).ready(function () {
     
     
     /* example */
+    /*
+     * - You can add btns on each step by add class ".forward" or ".back" 
+     */
     $('.hillWizard').hillWizard({  
-        activeStep : 2,
-        showBtn : true /* show back and forward buttons*/
+        activeStep : 1,
+        showBtn : true, /* show back and forward buttons*/
+        multipleDirections : false /* You can navigate on steps by click . Ff FALSE => "showBtn" is forced enable to navigate on steps)*/
     });
 });

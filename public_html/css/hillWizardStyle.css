@@ -8,17 +8,41 @@ and open the template in the editor.
     Author     : Matteo Collina
 */
 
-.hillWizard .steps a{
+.hillWizard {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hillWizard a {
     text-decoration: none;
-    color:black;
+  list-style-type: none;
+  display: inline-block;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+
+  background-color: #f0f0f0;
+  width: 15%;
+  text-transform: uppercase;
+  color:black;
 }
+
+
+
+
 .hillWizard .steps a.active{
-    color:orange;
+    background:green;
+    color:white;
 }
-.hillWizard .steps a.enabled{
+.hillWizard .enabled{
     opacity: 1;
 }
-.hillWizard .steps a.disabled{
+.hillWizard .disabled{
     opacity: 0.3;
     pointer-events: none;
 }
