@@ -6,5 +6,6 @@ Easy Wizard Plugin.
 
 $('.hillWizard').hillWizard({
 activeStep : 2,
-showBtn : true  //show back and forward buttons
+showBtn : true, 
+multipleDirections : false
 });
