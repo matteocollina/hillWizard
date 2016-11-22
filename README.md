@@ -2,12 +2,15 @@
 simple wizard
 
 Easy Wizard Plugin.
+- customize your css.
+- add multiple steps
+- choose the first step to show
 
 
 $('.hillWizard').hillWizard({
-activeStep : 2,
-showBtn : true, 
-multipleDirections : false
+    activeStep : 2,
+    showBtn : true, 
+    multipleDirections : false
 });
 
 
