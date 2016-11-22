@@ -64,11 +64,13 @@ $(document).ready(function () {
                 methods.checkStateBtns(wizard,activeStep);
             },
             setActiveStepOnClick : function(e) {
+                e.preventDefault();
                 var wizard = e.data.wizard;
                 var currentStep = e.data.currentStep;
                 methods.setActiveStep(wizard,currentStep);
             },
             setActiveStepBtn : function(e) {
+                e.preventDefault();
                 var wizard = e.data.wizard;
                 var direction = e.data.direction;
                 
@@ -156,7 +158,7 @@ $(document).ready(function () {
      */
     $('.hillWizard').hillWizard({  
         activeStep : 1,
-        showBtn : true, /* show back and forward buttons*/
-        multipleDirections : false /* You can navigate on steps by click . Ff FALSE => "showBtn" is forced enable to navigate on steps)*/
+        showBtn : true,
+        multipleDirections : false 
     });
 });

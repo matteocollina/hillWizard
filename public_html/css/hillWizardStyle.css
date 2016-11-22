@@ -27,13 +27,18 @@ and open the template in the editor.
   height: 30px;
 
   background-color: #f0f0f0;
-  width: 15%;
+  width: 19%;
   text-transform: uppercase;
   color:black;
 }
 
 
-
+.hillWizard .steps .back,
+.hillWizard .steps .forward{
+    background: none;
+    text-decoration: underline;
+    border: 1px solid black;
+}
 
 .hillWizard .steps a.active{
     background:green;
@@ -47,6 +52,13 @@ and open the template in the editor.
     pointer-events: none;
 }
 
+.hillWizard .contents{
+    text-align: center;
+}
+.hillWizard .contents p{
+    width: 50%;
+    margin-left: 25%;
+}
 .hillWizard .contents > div{
     transition: opacity 1s ease-out;
     opacity: 0; 
@@ -58,3 +70,8 @@ and open the template in the editor.
     height: auto;
 }
 
+@media (max-width: 760px){
+    .hillWizard a{
+        width: 100%;
+    }
+}
