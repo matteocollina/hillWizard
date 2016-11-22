@@ -9,9 +9,10 @@ $(document).ready(function () {
     (function ($) {
                 
         var defaults = {
-          activeStep : 1,
-          showBtn : true,
-          multipleDirections : true
+          activeStep : 1, /* step active on init*/
+          showBtn : true, /* show btns "back" and "forward"*/
+          multipleDirections : true /* true : you can go to step by click on step btn
+           * otherwise you can navigate on steps by next/forwar btns*/
         };    
 
         var methods = {
@@ -23,7 +24,7 @@ $(document).ready(function () {
                 var showBtn = settings.showBtn;
                 var multipleDirections = settings.multipleDirections;
                 
-                /* If false => You must enable "showBtn" to navigate on steps)*/
+                /* If false => You must enable "showBtn" to navigate on steps*/
                 if(!multipleDirections){
                     showBtn = true ;
                 }
@@ -89,8 +90,8 @@ $(document).ready(function () {
                     }
                  });
                  
-                 /* Setto a Active */
-                 var aSteps = wizard.children('.steps').children('a');
+
+                var aSteps = wizard.children('.steps').children('a');
                  aSteps.each(function( index ) {
                      var cStep = $(this).attr('href').replace('#step', '');
                      if(cStep == currentStep){
@@ -152,10 +153,7 @@ $(document).ready(function () {
     
     
     
-    /* example */
-    /*
-     * - You can add btns on each step by add class ".forward" or ".back" 
-     */
+    /* Example */
     $('.hillWizard').hillWizard({  
         activeStep : 1,
         showBtn : true,
