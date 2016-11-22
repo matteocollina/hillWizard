@@ -8,7 +8,7 @@ Easy Wizard Plugin.
 
 
 $('.hillWizard').hillWizard({
-    activeStep : 2,
+    activeStep : 1,
     showBtn : true, 
     multipleDirections : false
 });
